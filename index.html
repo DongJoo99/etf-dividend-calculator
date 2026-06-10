@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ETF 배당 계산기</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <p class="eyebrow">Dividend Income Planner</p>
+      <h1>ETF 배당 계산기</h1>
+      <p class="desc">투자금, 배당률, 세금, 기간을 입력하면 예상 배당금과 기간별 총 수익을 계산합니다.</p>
+    </section>
+
+    <section class="workspace" aria-label="ETF 배당 계산기">
+      <form class="panel input-panel" id="calculatorForm">
+        <div class="section-title">
+          <span>입력</span>
+          <small>배당 재투자 제외 단순 계산</small>
+        </div>
+
+        <label for="etfName">ETF 이름</label>
+        <input id="etfName" type="text" value="TIGER 미국배당다우존스" placeholder="예: SCHD">
+
+        <div class="input-grid">
+          <div>
+            <label for="amount">투자금 (원)</label>
+            <input id="amount" type="number" min="0" step="10000" value="1000000" placeholder="1000000">
+          </div>
+
+          <div>
+            <label for="yieldRate">예상 연 배당률 (%)</label>
+            <input id="yieldRate" type="number" min="0" step="0.1" value="8" placeholder="8">
+          </div>
+        </div>
+
+        <div class="input-grid">
+          <div>
+            <label for="periodYears">투자 기간 (년)</label>
+            <input id="periodYears" type="number" min="1" max="50" step="1" value="10" placeholder="10">
+          </div>
+
+          <div>
+            <label for="taxRate">배당소득세 (%)</label>
+            <input id="taxRate" type="number" min="0" max="100" step="0.1" value="15.4">
+          </div>
+        </div>
+
+        <button class="calculate-button" type="submit">계산하기</button>
+      </form>
+
+      <section class="panel output-panel" aria-live="polite">
+        <div class="section-title">
+          <span id="summaryTitle">계산 결과</span>
+          <small id="summarySubtitle">10년 기준</small>
+        </div>
+
+        <div class="highlight">
+          <span>기간 총 세후 배당금</span>
+          <strong id="periodNet">0원</strong>
+        </div>
+
+        <div class="metric-grid">
+          <p>
+            <span>세전 연 배당금</span>
+            <strong id="yearGross">0원</strong>
+          </p>
+          <p>
+            <span>세전 월 배당금</span>
+            <strong id="monthGross">0원</strong>
+          </p>
+          <p>
+            <span>세후 연 배당금</span>
+            <strong id="yearNet">0원</strong>
+          </p>
+          <p>
+            <span>세후 월 배당금</span>
+            <strong id="monthNet">0원</strong>
+          </p>
+          <p>
+            <span>총 수익률</span>
+            <strong id="totalReturnRate">0%</strong>
+          </p>
+          <p>
+            <span>원금 회수 예상</span>
+            <strong id="recover">0년</strong>
+          </p>
+        </div>
+
+        <div class="total-box">
+          <span>투자금 + 세후 배당금</span>
+          <strong id="finalValue">0원</strong>
+        </div>
+
+        <div class="chart-panel">
+          <div class="chart-header">
+            <span>누적 세후 배당금</span>
+            <small id="chartCaption">연도별 예상</small>
+          </div>
+          <canvas id="dividendChart" width="680" height="280" aria-label="연도별 누적 세후 배당금 그래프"></canvas>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
