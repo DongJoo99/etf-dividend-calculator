@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://etf-dividend-calculator.vercel.app/sitemap.xml
