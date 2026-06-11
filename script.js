@@ -1,6 +1,8 @@
-const form = document.getElementById("calculatorForm");
+const calculatorForm = document.getElementById("calculatorForm");
 const canvas = document.getElementById("dividendChart");
-const ctx = canvas.getContext("2d");
+const ctx = canvas ? canvas.getContext("2d") : null;
+const recalculateBox = document.getElementById("recalculateBox");
+const recalculateButton = document.getElementById("recalculateButton");
 
 function formatWon(value) {
   return Math.round(value).toLocaleString("ko-KR") + "원";
@@ -11,14 +13,22 @@ function formatPercent(value) {
 }
 
 function getNumber(id) {
-  return Number(document.getElementById(id).value);
+  const element = document.getElementById(id);
+  return element ? Number(element.value) : 0;
 }
 
 function setText(id, value) {
-  document.getElementById(id).innerText = value;
+  const element = document.getElementById(id);
+  if (element) {
+    element.innerText = value;
+  }
 }
 
 function drawDividendChart(years, yearlyNet) {
+  if (!canvas || !ctx) {
+    return;
+  }
+
   const width = canvas.width;
   const height = canvas.height;
   const padding = 42;
@@ -42,7 +52,7 @@ function drawDividendChart(years, yearlyNet) {
   ctx.stroke();
 
   ctx.fillStyle = "#657080";
-  ctx.font = "14px Arial";
+  ctx.font = "14px Arial, sans-serif";
   ctx.textAlign = "left";
   ctx.fillText(formatWon(maxValue), padding, 24);
 
@@ -62,15 +72,16 @@ function drawDividendChart(years, yearlyNet) {
 
     if (i === 1 || i === visibleYears || actualYear % 5 === 0) {
       ctx.fillStyle = "#657080";
-      ctx.font = "12px Arial";
+      ctx.font = "12px Arial, sans-serif";
       ctx.textAlign = "center";
       ctx.fillText(actualYear + "년", x + barWidth / 2, height - 16);
     }
   }
 }
 
-function calculate() {
-  const etfName = document.getElementById("etfName").value.trim() || "선택한 ETF";
+function calculate(showRecalculate = true) {
+  const etfNameInput = document.getElementById("etfName");
+  const etfName = etfNameInput && etfNameInput.value.trim() ? etfNameInput.value.trim() : "선택한 ETF";
   const amount = getNumber("amount");
   const yieldRate = getNumber("yieldRate");
   const taxRate = getNumber("taxRate");
@@ -105,11 +116,50 @@ function calculate() {
   setText("chartCaption", "세전 " + formatWon(periodGross) + " / 세후 " + formatWon(periodNet));
 
   drawDividendChart(periodYears, yearNet);
+
+  if (showRecalculate && recalculateBox) {
+    recalculateBox.hidden = false;
+  }
 }
 
-form.addEventListener("submit", function (event) {
-  event.preventDefault();
-  calculate();
-});
+function setLastUpdated() {
+  const targets = document.querySelectorAll("[data-last-updated]");
+  if (!targets.length) {
+    return;
+  }
 
-calculate();
+  const date = new Date(document.lastModified);
+  const isValidDate = !Number.isNaN(date.getTime());
+  const formatted = isValidDate
+    ? date.toLocaleDateString("ko-KR", { year: "numeric", month: "2-digit", day: "2-digit" })
+    : "2026. 06. 11.";
+
+  targets.forEach((target) => {
+    target.textContent = formatted;
+  });
+}
+
+if (calculatorForm) {
+  calculatorForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    calculate();
+  });
+
+  calculate(false);
+}
+
+if (recalculateButton) {
+  recalculateButton.addEventListener("click", function () {
+    const firstInput = document.getElementById("amount");
+    if (firstInput) {
+      firstInput.focus();
+      firstInput.select();
+    }
+
+    if (calculatorForm) {
+      calculatorForm.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  });
+}
+
+setLastUpdated();
