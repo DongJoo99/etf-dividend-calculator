@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ETF 배당 계산기 사용법 | 투자금 · 세금 · 기간 입력 안내</title>
-  <meta name="description" content="ETF 배당 계산기에서 투자금, 예상 연 배당률, 배당소득세, 투자 기간을 입력하고 세전·세후 배당금을 확인하는 방법을 안내합니다.">
+  <meta name="description" content="ETF 배당 계산기에서 투자금, 예상 연 배당률, 배당소득세, 투자 기간을 입력하고 세전·세후 배당금과 월 배당금을 해석하는 방법을 안내합니다.">
   <meta name="keywords" content="ETF 배당 계산기, ETF 배당, 배당 계산기, 세후 배당 계산, 배당 ETF, 월 배당 계산기">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://etf-dividend-calculator.vercel.app/usage.html">
@@ -12,11 +12,11 @@
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="ETF 배당 계산기">
   <meta property="og:title" content="ETF 배당 계산기 사용법">
-  <meta property="og:description" content="투자금과 배당률을 입력해 예상 배당금을 계산하는 방법을 쉽게 확인하세요.">
+  <meta property="og:description" content="투자금과 배당률을 입력해 세전·세후 배당금과 월평균 현금흐름을 계산하는 방법을 쉽게 확인하세요.">
   <meta property="og:url" content="https://etf-dividend-calculator.vercel.app/usage.html">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="ETF 배당 계산기 사용법">
-  <meta name="twitter:description" content="계산기 입력 항목과 결과 해석 방법을 안내합니다.">
+  <meta name="twitter:description" content="계산기 입력 항목과 결과 해석 방법을 초보자 기준으로 안내합니다.">
   <meta name="google-adsense-account" content="ca-pub-6519571146712101">
   <script type="application/ld+json">
 {
@@ -41,11 +41,13 @@
     <a class="brand" href="index.html">ETF 배당 계산기</a>
     <nav class="site-nav" aria-label="주요 메뉴">
       <a href="index.html#calculator">계산기</a>
-      <a href="notice.html">안내사항</a>
-      <a href="etf-dividend-guide.html">배당금 계산법</a>
+      <a href="usage.html">사용법</a>
+      <a href="etf-dividend-guide.html">배당 기초</a>
+      <a href="dividend-yield-calculation.html">배당률 계산</a>
       <a href="dividend-tax-guide.html">세금</a>
-      <a href="monthly-dividend-etf.html">월 배당 ETF</a>
-      <a href="contact.html">문의</a>
+      <a href="monthly-dividend-etf.html">월 배당</a>
+      <a href="dividend-investing-beginner-checklist.html">체크리스트</a>
+      <a href="faq.html">FAQ</a>
     </nav>
   </header>
 
@@ -53,19 +55,53 @@
     <article class="panel article-body">
       <span class="article-meta">사용법</span>
       <h1>ETF 배당 계산기 사용법</h1>
-      <p>ETF 배당 계산기는 복잡한 설정 없이 투자금과 예상 연 배당률만 입력해도 세전 배당금과 세후 배당금을 빠르게 확인할 수 있도록 만든 도구입니다. 배당 ETF를 처음 비교할 때, 월별 현금흐름을 대략적으로 보고 싶을 때, 여러 배당률을 바꿔가며 결과를 비교하고 싶을 때 활용할 수 있습니다.</p>
+      <p class="updated-at">마지막 업데이트: 2026년 6월 20일</p>
+      <p>ETF 배당 계산기는 배당 ETF를 비교할 때 필요한 예상 현금흐름을 빠르게 계산하기 위한 참고용 도구입니다. 배당률이 높아 보이는 ETF라도 투자금이 얼마인지, 세금을 뺀 뒤 얼마가 남는지, 월평균으로 환산하면 생활비나 재투자 계획에 어느 정도 도움이 되는지에 따라 판단이 달라집니다. 이 페이지는 처음 사용하는 분이 입력값을 어디서 확인하고 결과를 어떻게 읽어야 하는지 단계별로 설명합니다.</p>
 
-      <h2>입력 항목</h2>
+      <h2>1. ETF 이름 입력</h2>
+      <p>ETF 이름은 계산 결과 제목에 표시되는 항목입니다. 실제 시세를 자동으로 불러오지는 않으므로 사용자가 비교하려는 ETF 이름이나 티커를 직접 입력합니다. 예를 들어 국내 ETF는 `TIGER 미국배당다우존스`, `KODEX 미국배당프리미엄액티브`처럼 적을 수 있고, 미국 ETF는 `SCHD`, `JEPI`, `VYM`처럼 티커를 적어도 됩니다. 이름 입력은 계산식에 영향을 주지 않지만 여러 ETF를 비교할 때 결과를 구분하는 데 도움이 됩니다.</p>
+
+      <h2>2. 투자금 입력</h2>
+      <p>투자금은 배당금을 계산할 기준 금액입니다. 이미 보유한 ETF의 평가금액을 넣어도 되고, 앞으로 투자하려는 예상 금액을 넣어도 됩니다. 계산기는 원화 기준으로 설계되어 있으므로 미국 ETF를 비교할 때는 달러 투자금을 원화로 환산해 입력하는 편이 좋습니다. 환율이 바뀌면 원화 기준 배당금도 달라지므로 해외 ETF는 환율을 별도로 확인해야 합니다.</p>
+
+      <h2>3. 예상 연 배당률 입력</h2>
+      <p>예상 연 배당률은 가장 중요한 입력값입니다. 운용사 홈페이지, 증권사 앱, 최근 12개월 분배금 이력, ETF 정보 사이트 등을 참고해 입력할 수 있습니다. 다만 최근 한 번의 분배금만 연환산하면 실제보다 높거나 낮게 보일 수 있습니다. 월 배당 ETF나 커버드콜 ETF처럼 분배금 변동이 큰 상품은 최근 12개월 합산 분배금과 현재 가격을 함께 확인하는 것이 더 현실적입니다. 배당률 계산식이 궁금하다면 <a href="dividend-yield-calculation.html">ETF 배당률 계산 방법</a>을 함께 확인하세요.</p>
+
+      <h2>4. 배당소득세 입력</h2>
+      <p>기본 배당소득세는 15.4%로 설정되어 있습니다. 국내 일반 계좌에서 배당소득을 볼 때 자주 참고하는 비율이지만 모든 상황에 그대로 적용되는 것은 아닙니다. 연금저축, IRP, ISA, 해외 ETF, 금융소득 규모에 따라 과세 방식과 시점이 달라질 수 있습니다. 계산기에서 세율을 바꿔 입력하면 세후 배당금이 얼마나 달라지는지 비교할 수 있습니다. 자세한 설명은 <a href="dividend-tax-guide.html">배당소득세 15.4% 기준과 세후 배당금 계산</a> 페이지를 참고하세요.</p>
+
+      <h2>5. 투자 기간 입력</h2>
+      <p>투자 기간은 같은 배당률이 유지된다고 가정했을 때 누적 세후 배당금을 계산하는 기준입니다. 예를 들어 10년을 입력하면 세후 연 배당금에 10을 곱해 예상 누적 세후 배당금을 보여줍니다. 이 값은 배당 재투자, ETF 가격 상승 또는 하락, 환율 변동, 분배금 변경을 반영하지 않습니다. 따라서 장기 투자 성과를 예측하는 값이 아니라 배당 현금흐름 규모를 단순 비교하는 참고값으로 해석해야 합니다.</p>
+
+      <h2>실제 계산 예시</h2>
+      <p>투자금 1,000,000원, 예상 연 배당률 5%, 배당소득세 15.4%, 투자 기간 3년을 입력한다고 가정해 보겠습니다. 세전 연 배당금은 1,000,000원 × 5% = 50,000원입니다. 여기에 세율 15.4%를 적용하면 세금은 7,700원이고 세후 연 배당금은 42,300원입니다. 월평균 세후 배당금은 약 3,525원이며, 3년 동안 같은 조건이 유지된다고 가정하면 누적 세후 배당금은 126,900원입니다. 이 예시는 계산 원리를 보여주기 위한 단순 예시이며 실제 지급액은 ETF별 분배 정책에 따라 달라질 수 있습니다.</p>
+
+      <h2>결과를 읽을 때 주의할 점</h2>
       <ul>
-        <li>ETF 이름은 결과 제목에 표시되는 항목입니다. 실제 시세를 자동 조회하지 않으므로 직접 확인한 이름이나 티커를 입력해 주세요.</li>
-        <li>투자금은 현재 투자했거나 투자할 예정인 금액을 원화 기준으로 입력합니다.</li>
-        <li>예상 연 배당률은 ETF의 최근 분배금 자료, 운용사 정보, 증권사 자료 등을 참고해 직접 입력합니다.</li>
-        <li>배당소득세는 기본값 15.4%로 설정되어 있지만 계좌 유형이나 해외 원천징수 여부에 따라 달라질 수 있습니다.</li>
-        <li>투자 기간은 같은 배당률이 유지된다고 가정했을 때 예상 누적 세후 배당금을 계산하는 기준입니다.</li>
+        <li>세전 월 배당금과 세후 월 배당금은 연 배당금을 12개월로 나눈 평균값입니다.</li>
+        <li>월 배당 ETF라도 매월 같은 금액을 지급한다는 의미는 아닙니다.</li>
+        <li>투자금 대비 누적 배당 비율은 배당만 단순 계산한 참고 지표입니다.</li>
+        <li>ETF 가격 변동, 환율, 운용 보수, 매매 수수료는 계산에 자동 반영되지 않습니다.</li>
+        <li>본 내용은 투자 참고용이며 투자 판단은 본인 책임입니다.</li>
       </ul>
 
-      <h2>결과 해석</h2>
-      <p>세전 연 배당금은 세금을 고려하기 전의 예상 배당금입니다. 세후 연 배당금은 입력한 배당소득세를 차감한 뒤 남는 금액입니다. 예상 누적 세후 배당금은 같은 조건이 투자 기간 동안 유지된다는 단순 가정으로 계산되며, 배당 재투자 효과나 ETF 가격 변동은 포함하지 않습니다.</p>
+      <h2>함께 읽으면 좋은 글</h2>
+      <ul>
+        <li><a href="etf-dividend-guide.html">ETF 배당금 계산 방법</a></li>
+        <li><a href="monthly-dividend-etf.html">월 배당 ETF 계산 시 확인할 점</a></li>
+        <li><a href="after-tax-dividend-guide.html">세후 배당금이 중요한 이유</a></li>
+        <li><a href="domestic-vs-us-dividend-etf.html">국내 ETF와 미국 ETF 배당 계산 차이</a></li>
+      </ul>
+
+      <h2>자주 묻는 질문</h2>
+      <h3>배당률은 어디서 확인하나요?</h3>
+      <p>ETF 운용사 상품 페이지, 증권사 앱, 최근 분배금 공시, 해외 ETF의 경우 운용사 공식 자료에서 확인할 수 있습니다. 가능하면 최근 12개월 분배금 기준으로 계산하는 편이 좋습니다.</p>
+
+      <h3>세율을 0%로 입력해도 되나요?</h3>
+      <p>계좌 구조나 세금 적용 여부를 별도로 비교하고 싶다면 0%로 입력할 수 있습니다. 다만 실제 세금은 개인 상황에 따라 달라질 수 있으므로 최종 판단에는 증권사 안내나 세무 기준을 확인해야 합니다.</p>
+
+      <h3>계산 결과가 실제 입금액과 다른 이유는 무엇인가요?</h3>
+      <p>분배금 변동, 지급일 환율, 원천징수, 계좌별 과세, ETF 가격 변동, 운용 보수 등 계산기에 없는 요소가 실제 입금액에 영향을 줄 수 있습니다.</p>
 
       <div class="mini-cta">
         <span>입력값을 바꿔가며 여러 ETF의 예상 배당 흐름을 비교해 보세요.</span>
@@ -76,17 +112,17 @@
     <section class="recommended-section" aria-label="추천 콘텐츠">
       <h2>추천 콘텐츠</h2>
       <div class="recommended-grid">
-        <a class="panel recommended-card" href="etf-dividend-guide.html">
-          <strong>ETF 배당금 계산 방법</strong>
-          <p>ETF 배당금의 개념과 세전·세후 계산 기준을 확인하세요.</p>
+        <a class="panel recommended-card" href="high-dividend-etf-guide.html">
+          <strong>고배당 ETF 체크</strong>
+          <p>높은 배당률을 보기 전 확인해야 할 위험 요소를 정리했습니다.</p>
         </a>
-        <a class="panel recommended-card" href="dividend-tax-guide.html">
-          <strong>배당소득세 15.4% 기준</strong>
-          <p>세후 배당금을 계산할 때 필요한 세금 기준을 정리했습니다.</p>
+        <a class="panel recommended-card" href="dividend-yield-calculation.html">
+          <strong>배당률 계산 방법</strong>
+          <p>연 배당률과 세후 배당금 계산식을 예시로 확인하세요.</p>
         </a>
-        <a class="panel recommended-card" href="monthly-dividend-etf.html">
-          <strong>월 배당 ETF 계산</strong>
-          <p>환율, 분배금 변동, 가격 변동을 함께 확인하세요.</p>
+        <a class="panel recommended-card" href="etf-distribution-date-guide.html">
+          <strong>분배금 지급일 확인</strong>
+          <p>분배 기준일과 지급일을 확인하는 방법을 안내합니다.</p>
         </a>
         <a class="panel recommended-card" href="faq.html">
           <strong>FAQ</strong>
@@ -94,16 +130,15 @@
         </a>
       </div>
     </section>
-
   </main>
 
   <footer class="site-footer">
     <p>ETF 배당 계산기는 참고용 계산 도구이며 투자 권유가 아닙니다.</p>
     <div class="footer-links">
-      <a href="usage.html">사용법</a>
-      <a href="notice.html">안내사항</a>
       <a href="privacy.html">개인정보처리방침</a>
       <a href="contact.html">문의</a>
+      <a href="notice.html">안내사항</a>
+      <a href="disclaimer.html">면책 안내</a>
       <a href="sitemap.xml">사이트맵</a>
     </div>
     <p class="updated-at">최종 업데이트: <span data-last-updated>자동 생성</span></p>

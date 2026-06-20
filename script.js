@@ -99,9 +99,8 @@ function calculate(showRecalculate = true) {
   const monthNet = yearNet / 12;
   const periodGross = yearGross * periodYears;
   const periodNet = yearNet * periodYears;
-  const finalValue = amount + periodNet;
+  const periodTax = periodGross - periodNet;
   const totalReturnRate = (periodNet / amount) * 100;
-  const recoverYears = yearNet > 0 ? amount / yearNet : 0;
 
   setText("summaryTitle", etfName + " 계산 결과");
   setText("summarySubtitle", periodYears + "년 기준");
@@ -111,8 +110,8 @@ function calculate(showRecalculate = true) {
   setText("monthNet", formatWon(monthNet));
   setText("periodNet", formatWon(periodNet));
   setText("totalReturnRate", formatPercent(totalReturnRate));
-  setText("finalValue", formatWon(finalValue));
-  setText("recover", recoverYears.toFixed(1) + "년");
+  setText("finalValue", formatWon(periodTax));
+  setText("recover", "가격·환율 제외");
   setText("chartCaption", "세전 " + formatWon(periodGross) + " / 세후 " + formatWon(periodNet));
 
   drawDividendChart(periodYears, yearNet);

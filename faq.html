@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ETF 배당 계산기 FAQ | 계산 방식과 세후 배당금 질문</title>
-  <meta name="description" content="ETF 배당 계산기의 계산 방식, 세전·세후 배당금 차이, 배당률 입력 기준, 계산기 한계와 자주 묻는 질문을 정리했습니다.">
-  <meta name="keywords" content="ETF 배당 계산기, ETF 배당, 배당 계산기, 세후 배당 계산, 배당 ETF, 월 배당 계산기">
+  <meta name="description" content="ETF 배당 계산기의 계산 방식, 세전·세후 배당금 차이, 배당률 입력 기준, 월 배당 ETF, 세금, 계산기 한계와 자주 묻는 질문을 정리했습니다.">
+  <meta name="keywords" content="ETF 배당 계산기 FAQ, ETF 배당, 배당 계산기, 세후 배당 계산, 월 배당 ETF">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://etf-dividend-calculator.vercel.app/faq.html">
   <meta property="og:locale" content="ko_KR">
@@ -49,10 +49,18 @@
       },
       {
         "@type": "Question",
-        "name": "계산기 결과가 실제 수익률을 보장하나요?",
+        "name": "월 배당 ETF는 매월 같은 금액을 지급하나요?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "아닙니다. 계산 결과는 참고용이며 실제 수익률은 ETF 가격, 환율, 세금, 운용 보수, 분배 정책에 따라 달라질 수 있습니다."
+          "text": "아닙니다. 월 배당 ETF도 기초 자산, 옵션 전략, 환율, 운용 정책에 따라 매월 분배금이 달라질 수 있습니다."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "계산기 결과가 실제 투자 결과를 보장하나요?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "아닙니다. 계산 결과는 참고용이며 실제 결과는 ETF 가격, 환율, 세금, 운용 보수, 분배 정책에 따라 달라질 수 있습니다."
         }
       }
     ]
@@ -67,11 +75,12 @@
     <nav class="site-nav" aria-label="주요 메뉴">
       <a href="index.html#calculator">계산기</a>
       <a href="usage.html">사용법</a>
-      <a href="notice.html">안내사항</a>
-      <a href="etf-dividend-guide.html">배당금 계산법</a>
+      <a href="etf-dividend-guide.html">배당 기초</a>
+      <a href="dividend-yield-calculation.html">배당률 계산</a>
       <a href="dividend-tax-guide.html">세금</a>
-      <a href="monthly-dividend-etf.html">월 배당 ETF</a>
-      <a href="contact.html">문의</a>
+      <a href="monthly-dividend-etf.html">월 배당</a>
+      <a href="dividend-investing-beginner-checklist.html">체크리스트</a>
+      <a href="faq.html">FAQ</a>
     </nav>
   </header>
 
@@ -79,7 +88,8 @@
     <article class="panel article-body">
       <span class="article-meta">FAQ</span>
       <h1>ETF 배당 계산기 자주 묻는 질문</h1>
-      <p>ETF 배당 계산기는 배당 ETF를 비교할 때 필요한 예상 현금흐름을 빠르게 확인하기 위한 참고용 도구입니다. 투자금, 예상 연 배당률, 배당소득세, 투자 기간을 입력하면 세전 배당금과 세후 배당금, 기간별 예상 누적 세후 배당금을 계산합니다. 아래 질문은 계산 결과를 해석할 때 자주 헷갈리는 부분을 정리한 내용입니다.</p>
+      <p class="updated-at">마지막 업데이트: 2026년 6월 20일</p>
+      <p>ETF 배당 계산기는 배당 ETF를 비교할 때 필요한 예상 현금흐름을 빠르게 확인하기 위한 참고용 도구입니다. 투자금, 예상 연 배당률, 배당소득세, 투자 기간을 입력하면 세전 배당금과 세후 배당금, 월평균 배당금, 기간별 예상 누적 세후 배당금을 계산합니다. 아래 질문은 초보자가 계산 결과를 해석할 때 자주 헷갈리는 내용을 모아 정리했습니다.</p>
 
       <h2>ETF 배당 계산 방식은 어떻게 되나요?</h2>
       <p>기본 계산은 투자금에 예상 연 배당률을 곱하는 방식입니다. 예를 들어 투자금이 1,000,000원이고 예상 연 배당률이 8%라면 세전 연 배당금은 80,000원입니다. 이 금액을 12개월로 나누면 세전 월 배당금이 되고, 배당소득세를 차감하면 세후 연 배당금과 세후 월 배당금을 확인할 수 있습니다. 투자 기간을 입력하면 같은 배당률이 유지된다는 가정으로 예상 누적 세후 배당금을 계산합니다.</p>
@@ -88,16 +98,33 @@
       <p>세전 배당금은 세금을 차감하기 전 금액입니다. 세후 배당금은 입력한 세율을 반영해 실제 수령액에 조금 더 가까운 참고 금액을 보여줍니다. 기본 세율 15.4%는 국내에서 배당소득세를 계산할 때 자주 참고하는 값입니다. 다만 실제 세금은 계좌 유형, 금융소득 규모, 해외 ETF 원천징수 여부, 세법 변경에 따라 달라질 수 있습니다.</p>
 
       <h2>예상 연 배당률은 어떻게 입력하나요?</h2>
-      <p>예상 연 배당률은 운용사 상품 페이지, 증권사 앱, 최근 분배금 이력 등을 참고해 입력하는 것이 좋습니다. 최근 한 번의 분배금만 기준으로 연 환산하면 실제와 차이가 날 수 있습니다. 월 배당 ETF나 커버드콜 ETF처럼 분배금 변동이 큰 상품은 최근 12개월 분배금, 현재 가격, 상품 구조를 함께 확인해야 합니다.</p>
+      <p>예상 연 배당률은 운용사 상품 페이지, 증권사 앱, 최근 분배금 이력 등을 참고해 입력하는 것이 좋습니다. 최근 한 번의 분배금만 기준으로 연환산하면 실제와 차이가 날 수 있습니다. 월 배당 ETF나 커버드콜 ETF처럼 분배금 변동이 큰 상품은 최근 12개월 분배금, 현재 가격, 상품 구조를 함께 확인해야 합니다. 자세한 공식은 <a href="dividend-yield-calculation.html">ETF 배당률 계산 방법</a>을 참고하세요.</p>
 
       <h2>계산기의 한계는 무엇인가요?</h2>
       <p>이 계산기는 배당금 흐름을 단순화해 보여주는 도구입니다. 배당 재투자, ETF 가격 상승 또는 하락, 환율 변동, 운용 보수, 실제 매매 수수료, 세법 변경, 분배 정책 변화는 계산에 자동 반영되지 않습니다. 따라서 계산 결과는 투자 결정을 확정하는 숫자가 아니라 여러 ETF의 배당 흐름을 비교하기 위한 출발점으로 보는 것이 좋습니다.</p>
 
       <h2>월 배당 ETF도 같은 방식으로 계산해도 되나요?</h2>
-      <p>월 배당 ETF도 연 배당률을 기준으로 입력하면 월평균 배당금을 계산할 수 있습니다. 하지만 월 배당 ETF가 매월 같은 금액을 지급한다는 뜻은 아닙니다. 분배금은 기초 자산, 옵션 전략, 금리, 환율, 운용 정책에 따라 달라질 수 있습니다. 특히 해외 자산에 투자하는 ETF는 원화 기준 수령액이 환율에 따라 크게 달라질 수 있습니다.</p>
+      <p>월 배당 ETF도 연 배당률을 기준으로 입력하면 월평균 배당금을 계산할 수 있습니다. 하지만 월 배당 ETF가 매월 같은 금액을 지급한다는 뜻은 아닙니다. 분배금은 기초 자산, 옵션 전략, 금리, 환율, 운용 정책에 따라 달라질 수 있습니다. 특히 해외 자산에 투자하는 ETF는 원화 기준 수령액이 환율에 따라 크게 달라질 수 있습니다. 월 배당 관련 설명은 <a href="monthly-dividend-etf.html">월 배당 ETF 계산 시 확인할 점</a>에서 더 자세히 볼 수 있습니다.</p>
+
+      <h2>고배당 ETF는 무조건 좋은 선택인가요?</h2>
+      <p>그렇지 않습니다. 높은 배당률은 ETF 가격이 하락해서 계산상 높아 보이는 결과일 수 있고, 일시적인 분배 확대일 수도 있습니다. 분배금 지속 가능성, 총보수, 기초지수, 운용 규모, 거래량, 세금, 환율을 함께 확인해야 합니다. 고배당 ETF를 볼 때는 <a href="high-dividend-etf-guide.html">고배당 ETF 투자 전 확인해야 할 5가지</a>를 먼저 점검하는 것이 좋습니다.</p>
+
+      <h2>국내 ETF와 미국 ETF는 같은 방식으로 비교해도 되나요?</h2>
+      <p>기본 계산 원리는 같지만 실제 비교에는 차이가 있습니다. 국내 ETF는 원화 기준으로 확인하기 쉽지만, 미국 ETF는 달러 배당과 환율 영향을 함께 봐야 합니다. 세금도 국내 상장 ETF와 해외 직접 투자 ETF가 다르게 적용될 수 있습니다. 비교 기준은 <a href="domestic-vs-us-dividend-etf.html">국내 ETF와 미국 ETF 배당 계산 차이</a>에서 정리했습니다.</p>
+
+      <h2>분배금 지급일은 어디서 확인하나요?</h2>
+      <p>ETF 운용사 상품 페이지, 분배금 지급 공시, 증권사 앱의 분배금 내역에서 확인할 수 있습니다. 지급 기준일과 실제 지급일은 다를 수 있고, 매월 지급 상품이라도 지급액은 변동될 수 있습니다. 자세한 방법은 <a href="etf-distribution-date-guide.html">ETF 분배금 지급일 확인 방법</a>을 참고하세요.</p>
 
       <h2>이 계산기는 투자 권유인가요?</h2>
-      <p>아닙니다. ETF 배당 계산기는 참고용 계산 도구이며 특정 ETF 매수나 매도를 권유하지 않습니다. 실제 투자 전에는 상품 설명서, 운용사 자료, 세금 기준, 본인의 투자 목적과 위험 감수 수준을 함께 확인해야 합니다. 계산 결과가 좋아 보여도 ETF 가격 변동이나 분배금 감소가 발생할 수 있습니다.</p>
+      <p>아닙니다. ETF 배당 계산기는 참고용 계산 도구이며 특정 ETF 매수나 매도를 권유하지 않습니다. 실제 투자 전에는 상품 설명서, 운용사 자료, 세금 기준, 본인의 투자 목적과 위험 감수 수준을 함께 확인해야 합니다. 계산 결과가 좋아 보여도 ETF 가격 변동이나 분배금 감소가 발생할 수 있습니다. 본 내용은 투자 참고용이며 투자 판단은 본인 책임입니다.</p>
+
+      <h2>함께 읽으면 좋은 글</h2>
+      <ul>
+        <li><a href="usage.html">ETF 배당 계산기 사용법</a></li>
+        <li><a href="etf-dividend-guide.html">ETF 배당금 계산 방법</a></li>
+        <li><a href="after-tax-dividend-guide.html">세후 배당금이 중요한 이유</a></li>
+        <li><a href="dividend-investing-beginner-checklist.html">배당 ETF 초보자를 위한 투자 전 체크리스트</a></li>
+      </ul>
 
       <div class="mini-cta">
         <span>궁금한 ETF 조건을 바꿔가며 예상 배당 흐름을 확인해 보세요.</span>
@@ -120,23 +147,21 @@
           <strong>월 배당 ETF 계산</strong>
           <p>환율, 분배금 변동, 가격 변동을 함께 확인하세요.</p>
         </a>
-        <a class="panel recommended-card" href="faq.html">
-          <strong>FAQ</strong>
-          <p>계산 방식과 자주 묻는 질문을 한 번에 확인하세요.</p>
+        <a class="panel recommended-card" href="dividend-investing-beginner-checklist.html">
+          <strong>초보자 체크리스트</strong>
+          <p>배당 ETF 투자 전 확인할 항목을 순서대로 점검하세요.</p>
         </a>
       </div>
     </section>
-
   </main>
 
   <footer class="site-footer">
     <p>ETF 배당 계산기는 참고용 계산 도구이며 투자 권유가 아닙니다.</p>
     <div class="footer-links">
-      <a href="usage.html">사용법</a>
-      <a href="notice.html">안내사항</a>
       <a href="privacy.html">개인정보처리방침</a>
       <a href="contact.html">문의</a>
-      <a href="faq.html">FAQ</a>
+      <a href="notice.html">안내사항</a>
+      <a href="disclaimer.html">면책 안내</a>
       <a href="sitemap.xml">사이트맵</a>
     </div>
     <p class="updated-at">최종 업데이트: <span data-last-updated>자동 생성</span></p>
