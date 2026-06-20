@@ -82,7 +82,7 @@
   }
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6519571146712101" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=20260620">
 </head>
 <body>
   <header class="site-header">
@@ -103,7 +103,19 @@
     <section class="hero">
       <p class="eyebrow">Dividend Income Planner</p>
       <h1>ETF 배당 계산기</h1>
-      <p class="desc">투자금, 예상 연 배당률, 배당소득세, 투자 기간을 입력하면 세전 배당금과 세후 배당금, 월평균 현금흐름, 기간별 누적 세후 배당금을 한 번에 확인할 수 있습니다. 배당 ETF를 처음 비교하거나 국내 ETF와 미국 ETF의 세후 차이를 가늠할 때 참고용으로 활용하세요.</p>
+      <p class="desc">투자금, 예상 연 배당률, 배당소득세, 투자 기간을 입력하면 세전 배당금과 세후 배당금, 월평균 현금흐름, 기간별 누적 세후 배당금을 한 번에 확인할 수 있습니다. 이 계산기는 ETF 선택을 대신하는 추천 도구가 아니라, 배당 ETF를 비교할 때 사용자가 직접 숫자를 넣어 현금흐름의 규모를 가늠해보는 계산 보조 도구입니다.</p>
+    </section>
+
+    <section class="content-grid intro-grid" aria-label="ETF 배당 계산기 소개">
+      <article class="panel content-card">
+        <h2>왜 이 계산기를 만들었나요?</h2>
+        <p>배당 ETF를 볼 때 상품 페이지에는 배당률, 분배금, 기준가, 세금, 지급 주기 같은 정보가 따로 흩어져 있습니다. 숫자를 손으로 계산하려면 투자금에 배당률을 곱하고, 월평균으로 나누고, 세율까지 다시 빼야 합니다. 이 과정에서 세전 금액과 세후 금액을 섞어 보거나, 월 배당금이 매달 고정되는 금액처럼 보이는 실수가 생기기 쉽습니다.</p>
+      </article>
+
+      <article class="panel content-card">
+        <h2>입력값은 무엇을 뜻하나요?</h2>
+        <p>투자금은 계산 기준이 되는 원화 금액이고, 예상 연 배당률은 사용자가 운용사 자료나 최근 분배금 이력을 보고 직접 입력하는 값입니다. 배당소득세는 세전 금액에서 차감할 비율이며, 투자 기간은 같은 조건이 유지된다고 가정했을 때 누적 세후 배당금을 단순 계산하는 기간입니다. 입력값이 달라지면 결과도 함께 달라지므로 여러 시나리오를 비교하는 데 활용할 수 있습니다.</p>
+      </article>
     </section>
 
     <section class="workspace" id="calculator" aria-label="ETF 배당 계산기">
@@ -201,6 +213,25 @@
       </section>
     </section>
 
+    <section class="content-grid" aria-label="ETF 배당금 계산 기준">
+      <article class="panel content-card">
+        <h2>계산 기준</h2>
+        <p>이 계산기는 사용자가 입력한 값을 바탕으로 아래 공식에 따라 단순 계산합니다. ETF 가격 변동, 환율 변동, 배당 재투자, 운용 보수, 매매 수수료는 자동 반영하지 않습니다.</p>
+        <ul>
+          <li>예상 연 배당금 = 투자금 × 예상 연 배당률</li>
+          <li>예상 월 배당금 = 예상 연 배당금 ÷ 12</li>
+          <li>세후 배당금 = 세전 배당금 × (1 - 배당소득세율)</li>
+          <li>누적 세후 배당금 = 세후 연 배당금 × 투자 기간</li>
+        </ul>
+      </article>
+
+      <article class="panel content-card">
+        <h2>결과를 읽는 작은 예시</h2>
+        <p>예를 들어 1,000만 원을 예상 연 배당률 5%, 배당소득세 15.4%로 계산하면 세전 연 배당금은 500,000원, 세후 연 배당금은 423,000원입니다. 월평균 세후 배당금은 약 35,250원으로 단순 계산됩니다. 이 금액은 실제 입금액을 약속하는 값이 아니라 배당 현금흐름을 비교하기 위한 참고값입니다.</p>
+        <p><a href="example-10million-dividend.html">투자금별 계산 예시 보기</a></p>
+      </article>
+    </section>
+
     <section class="content-grid" id="guide" aria-label="ETF 배당 계산기 사용 안내">
       <article class="panel content-card">
         <h2>이 계산기는 언제 쓰나요?</h2>
@@ -222,7 +253,7 @@
         <ul>
           <li>분배금은 고정 수입이 아니며 시장 상황과 운용 정책에 따라 줄어들 수 있습니다.</li>
           <li>높은 배당률은 가격 하락, 옵션 전략, 일시적 분배 확대의 결과일 수 있습니다.</li>
-          <li>해외 ETF는 달러 배당, 환율, 현지 원천징수까지 함께 확인해야 합니다.</li>
+          <li>해외 ETF는 달러 배당, 환율, 현지 원천징수까지 함께 점검하는 편이 좋습니다.</li>
           <li>계산 결과는 투자 참고용이며 투자 판단은 본인 책임입니다.</li>
         </ul>
       </article>
@@ -236,7 +267,7 @@
 
       <article class="panel content-card">
         <h2>월 배당금과 연 배당금의 차이</h2>
-        <p>연 배당금은 1년 동안 받을 수 있다고 가정한 전체 배당금이고, 월 배당금은 이를 12개월로 나눈 평균값입니다. 월 배당 ETF라도 매월 같은 금액이 고정되는 것은 아니며, 분배 기준일과 지급일, 환율, ETF가 보유한 자산의 배당 일정에 따라 실제 입금액은 달라질 수 있습니다. 월평균 금액은 생활비 계획이나 현금흐름 비교를 위한 참고 지표로만 활용하세요.</p>
+        <p>연 배당금은 1년 동안 분배된다고 가정한 전체 금액이고, 월 배당금은 이를 12개월로 나눈 평균값입니다. 월 배당 ETF라도 매월 같은 금액이 고정되는 것은 아니며, 분배 기준일과 지급일, 환율, ETF가 보유한 자산의 배당 일정에 따라 실제 입금액은 달라질 수 있습니다. 월평균 금액은 생활비 계획이나 현금흐름 비교를 위한 참고 지표로만 활용하세요.</p>
       </article>
     </section>
 
@@ -316,8 +347,8 @@
           <p>배당률, 총보수, 거래량, 세금, 환율을 순서대로 점검하세요.</p>
         </a>
         <a class="panel recommended-card" href="example-10million-dividend.html">
-          <strong>1,000만 원 배당금 계산 예시</strong>
-          <p>예상 배당률 3%, 5%, 7%를 표로 비교해보세요.</p>
+          <strong>투자금별 배당금 계산 예시</strong>
+          <p>500만, 1,000만, 3,000만 원 기준의 단순 계산값을 표로 비교하세요.</p>
         </a>
       </div>
     </section>
@@ -331,8 +362,11 @@
   <footer class="site-footer">
     <p>ETF 배당 계산기는 참고용 계산 도구이며 투자 권유가 아닙니다.</p>
     <div class="footer-links">
-      <a href="privacy.html">개인정보처리방침</a>
+      <a href="index.html">홈</a>
+      <a href="usage.html">사용법</a>
+      <a href="faq.html">FAQ</a>
       <a href="about.html">소개</a>
+      <a href="privacy.html">개인정보처리방침</a>
       <a href="contact.html">문의</a>
       <a href="notice.html">안내사항</a>
       <a href="disclaimer.html">면책 안내</a>

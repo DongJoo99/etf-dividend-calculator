@@ -109,6 +109,7 @@ h1 {
 }
 
 .workspace {
+  margin-top: 18px;
   display: grid;
   grid-template-columns: minmax(300px, 0.82fr) minmax(420px, 1.18fr);
   gap: 18px;
@@ -303,6 +304,10 @@ canvas {
   grid-template-columns: 1fr 1fr;
   gap: 18px;
   margin-top: 18px;
+}
+
+.intro-grid {
+  margin-bottom: 18px;
 }
 
 .content-card {
@@ -716,5 +721,21 @@ canvas {
   .article-list,
   .recommended-grid {
     grid-template-columns: 1fr;
+  }
+
+  .example-table {
+    display: table;
+    width: 100%;
+    max-width: 100%;
+    table-layout: fixed;
+    white-space: normal;
+  }
+
+  .example-table th,
+  .example-table td {
+    padding: 10px 7px;
+    font-size: 12px;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
   }
 }
